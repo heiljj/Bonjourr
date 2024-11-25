@@ -290,14 +290,14 @@ function createIcons(isInit?: true) {
 		const incomplete = initIconList.filter(([img]) => !img.complete)
 
 		for (const [img, url] of incomplete) {
-			img.src = 'src/assets/interface/loading.svg'
-
 			const newimg = document.createElement('img')
-			let new_url = "src/assets/interface/" + url.replaceAll("/", "") + ".jpg"
+			// let new_url = "src/assets/interface/" + url.replaceAll("/", "") + ".jpg"
+			// console.log(new_url + " before refresh")
+			console.log(url+ " before refresh")
 
-			newimg.addEventListener('load', () => (img.src = new_url))
+			newimg.addEventListener('load', () => (img.src = url))
 
-			newimg.src = new_url
+			newimg.src =url 
 		}
 
 		initIconList = []

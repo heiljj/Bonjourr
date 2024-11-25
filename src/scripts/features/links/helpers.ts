@@ -3,11 +3,8 @@ import { MAIN_API } from '../../defaults'
 import { tradThis } from '../../utils/translations'
 
 export function getDefaultIcon(url: string, refresh?: number) {
-	if (refresh) {
-		return `${MAIN_API}/favicon/blob/${url}?r=${refresh}`
-	} else {
-		return `${MAIN_API}/favicon/blob/${url}`
-	}
+	let new_url = "src/assets/interface/" + url.replaceAll("/", "") + ".jpg"
+	return new_url
 }
 
 export function getSelectedIds(): string[] {
