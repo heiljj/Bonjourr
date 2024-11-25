@@ -160,6 +160,7 @@ export function initblocks(data: Sync, isInit?: true): true {
 		}
 	})
 
+	//TODO
 	for (const group of activeGroups) {
 		const linkgroup = group.div ?? getHTMLTemplate<HTMLDivElement>('link-group-template', '.link-group')
 		const linksInFolders = allLinks.filter((link) => !link.folder && typeof link.parent === 'string')
@@ -249,6 +250,7 @@ function createFolder(link: Links.Folder, folderChildren: Link[], style: Style):
 	return li
 }
 
+//TODO
 function createElem(link: Links.Elem, openInNewtab: boolean, style: Style) {
 	const li = getHTMLTemplate<HTMLLIElement>('link-elem-template', 'li')
 	const span = li.querySelector('span')!
@@ -291,8 +293,11 @@ function createIcons(isInit?: true) {
 			img.src = 'src/assets/interface/loading.svg'
 
 			const newimg = document.createElement('img')
-			newimg.addEventListener('load', () => (img.src = url))
-			newimg.src = url
+			let new_url = "src/assets/interface/" + url.replaceAll("/", "") + ".jpg"
+
+			newimg.addEventListener('load', () => (img.src = new_url))
+
+			newimg.src = new_url
 		}
 
 		initIconList = []
